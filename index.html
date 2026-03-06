@@ -476,12 +476,11 @@
     </p>
 
     <div id="waitlist">
-      <form class="form-wrap" id="waitlistForm">
-        <input type="email" placeholder="your@email.com" required id="emailInput" />
+      <form class="form-wrap" action="https://tally.so/r/aQxOaZ" method="POST" target="_blank">
+        <input type="email" name="email" placeholder="your@email.com" required />
         <button type="submit">Get early access</button>
       </form>
       <p class="form-note">No spam. Notify when ready.</p>
-      <p class="success-msg" id="successMsg">You're on the list! We'll reach out soon.</p>
     </div>
   </section>
 
@@ -610,12 +609,11 @@
   <section class="cta-bottom">
     <h2>Be first in line.</h2>
     <p>Join the waitlist — we'll notify you when Fitply launches.</p>
-    <form class="form-wrap" id="waitlistForm2" style="justify-content:center;">
-      <input type="email" placeholder="your@email.com" required id="emailInput2" />
+    <form class="form-wrap" action="https://tally.so/r/aQxOaZ" method="POST" target="_blank" style="justify-content:center;">
+      <input type="email" name="email" placeholder="your@email.com" required />
       <button type="submit">Get early access</button>
     </form>
     <p class="form-note" style="margin-top:12px;">No spam. Notify when ready.</p>
-    <p class="success-msg" id="successMsg2">You're on the list! We'll reach out soon.</p>
   </section>
 
   <!-- FOOTER -->
@@ -625,31 +623,6 @@
     <p>fitply.online</p>
   </footer>
 
-  <script>
-    function handleForm(formId, inputId, msgId) {
-      const form = document.getElementById(formId);
-      const input = document.getElementById(inputId);
-      const msg = document.getElementById(msgId);
-
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = input.value.trim();
-        if (!email) return;
-
-        // Store locally (replace with your backend/Tally/Mailchimp endpoint)
-        const emails = JSON.parse(localStorage.getItem('fitply_waitlist') || '[]');
-        if (!emails.includes(email)) emails.push(email);
-        localStorage.setItem('fitply_waitlist', JSON.stringify(emails));
-
-        input.value = '';
-        form.style.display = 'none';
-        msg.style.display = 'block';
-      });
-    }
-
-    handleForm('waitlistForm', 'emailInput', 'successMsg');
-    handleForm('waitlistForm2', 'emailInput2', 'successMsg2');
-  </script>
 
 </body>
 </html>
